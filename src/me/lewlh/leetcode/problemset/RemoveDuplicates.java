@@ -32,6 +32,10 @@ public class RemoveDuplicates {
 					nums[j] = tmp;
 				}
 			}
+			for (int k = 0; k < length; k++) {
+				System.out.print(nums[k] + "  ");
+			}
+			System.out.println();
 		}
 		for (int i = 0; i < length; i++) {
 			System.out.print(nums[i] + "  ");
