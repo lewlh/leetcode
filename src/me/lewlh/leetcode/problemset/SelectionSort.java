@@ -1,0 +1,41 @@
+package mycode;
+
+import java.util.Random;
+
+/**
+ * https://zh.wikipedia.org/wiki/选择排序 选择排序（Selection
+ * sort）是一种简单直观的排序算法。它的工作原理如下。首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。
+ * 
+ * @author lewlh
+ *
+ */
+public class SelectionSort {
+	public static void selection_sort(int[] arr) {
+		int i, j, min, temp, len = arr.length;
+		for (i = 0; i < len - 1; i++) {
+			min = i;
+			for (j = i + 1; j < len; j++)
+				if (arr[min] > arr[j])
+					min = j;
+			temp = arr[min];
+			arr[min] = arr[i];
+			arr[i] = temp;
+		}
+	}
+
+	public static void main(String args[]) {
+		Quicksort q = new Quicksort();
+		int length = 20;
+		int[] test = new int[length];
+		Random rnd = new Random();
+		for (int i = 0; i < length; i++) {
+			test[i] = rnd.nextInt(1000);
+			System.out.print(test[i] + "  ");
+		}
+		System.out.println("  ");
+		SelectionSort.selection_sort(test);
+		for (int i = 0; i < length; i++) {
+			System.out.print(test[i] + "  ");
+		}
+	}
+}
